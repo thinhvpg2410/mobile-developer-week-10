@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {useDispatch} from "react-redux";
-import {addJobRequest} from "../utils/actions";
+import {addJobRequest} from "../utils/saga/actions";
 
 const AddJobScreen = ({navigation}) => {
     const [job, setJob] = useState('');

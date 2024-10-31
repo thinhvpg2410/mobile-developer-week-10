@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, Image, Text, TextInput, TouchableOpacity, View, StyleSheet, ScrollView} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import {useDispatch, useSelector} from "react-redux";
-import {getJobsRequest} from "../utils/actions";
+import {getJobsRequest} from "../utils/saga/actions";
 
 
 const TaskList = ({navigation}) => {

@@ -5,7 +5,7 @@ import AddJobScreen from "./screens/AddJobScreen";
 import {createStackNavigator} from "@react-navigation/stack";
 import {Provider} from "react-redux";
 import {NavigationContainer} from "@react-navigation/native";
-import store from "./utils/store";
+import store from "./utils/saga/store";
 
 const Stack = createStackNavigator();
 
