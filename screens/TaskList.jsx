@@ -3,15 +3,34 @@ import {FlatList, Image, Text, TextInput, TouchableOpacity, View, StyleSheet, Sc
 import Icon from "react-native-vector-icons/FontAwesome";
 import {useDispatch, useSelector} from "react-redux";
 import {getJobsRequest} from "../utils/saga/actions";
+import {fetchJobs} from "../utils/reduxtoolkit/jobSlice";
 
 
 const TaskList = ({navigation}) => {
+    // SAGA REDUX
+    /*    const dispatch = useDispatch();
+        const jobs = useSelector((state)=>state.jobs)
+
+        useEffect(() => {
+            dispatch(getJobsRequest())
+        }, [dispatch]);*/
+
+    // REDUX TOOLKIT
+
     const dispatch = useDispatch();
-    const jobs = useSelector((state)=>state.jobs)
+    const {jobs, loading, error} = useSelector((state) => state.jobs)
 
     useEffect(() => {
-        dispatch(getJobsRequest())
-    }, [dispatch]);
+        dispatch(fetchJobs())
+    }, [dispatch])
+
+    if (loading) {
+        return console.log("Loading...", loading)
+    }
+
+    if (error) {
+        return console.log(error)
+    }
 
 
     const renderTask = ({item}) => (

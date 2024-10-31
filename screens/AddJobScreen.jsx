@@ -2,15 +2,25 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {useDispatch} from "react-redux";
 import {addJobRequest} from "../utils/saga/actions";
+import {addJob} from "../utils/reduxtoolkit/jobSlice";
 
 const AddJobScreen = ({navigation}) => {
     const [job, setJob] = useState('');
-    const dispatch = useDispatch();
+    //SAGA RUDUX
+    /*const dispatch = useDispatch();
 
     const handleFinish = () => {
         dispatch(addJobRequest({ title: job }));
         navigation.goBack();
-    };
+    };*/
+
+    //REDUX TOOLKIT
+    const dispatch = useDispatch();
+
+    const handleFinish = () => {
+        dispatch(addJob({ title: job }));
+        navigation.goBack();
+    }
 
     return (
         <View style={styles.container}>
